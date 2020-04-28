@@ -10,4 +10,4 @@ select
     is_canceled
 from ticketing.order_tickets
 INNER JOIN ticketing.price_codes USING(price_code_unique_id)
-WHERE is_canceled is FALSE -- where shall this condition lives?
+WHERE is_canceled is False

@@ -1,8 +1,10 @@
-with customers as (
-    select * from {{ ref('customer_broker')}}
+
+  create view "data_platform_prod"."data_science"."customers__dbt_tmp" as (
+    with customers as (
+    select * from "data_platform_prod"."data_science"."customer_broker"
 ),
 order_flash as (
-    select * from {{ ref('order_flash')}}
+    select * from "data_platform_prod"."data_science"."order_flash"
 ),
 
 customer_orders as (
@@ -38,3 +40,4 @@ final as (
     left join customer_orders using (customer_unique_id)
 )
 select * from final
+  );

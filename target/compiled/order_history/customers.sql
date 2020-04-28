@@ -1,8 +1,8 @@
 with customers as (
-    select * from {{ ref('customer_broker')}}
+    select * from "data_platform_prod"."data_science"."customer_broker"
 ),
 order_flash as (
-    select * from {{ ref('order_flash')}}
+    select * from "data_platform_prod"."data_science"."order_flash"
 ),
 
 customer_orders as (
