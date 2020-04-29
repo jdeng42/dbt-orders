@@ -15,6 +15,7 @@ final as (
     sale_datetime,
     pricing_mode_id,
     transfer_action_id,
+    event_unique_id,
     ticket_id,
     ticket_state
     from orders LEFT JOIN flash ON flash.fk_order_unique_id=orders.order_unique_id

@@ -13,7 +13,7 @@ final as (
     SELECT 
     customer_unique_id,
     email,
-    broker_email,
+    CASE WHEN broker_email is not null THEN 1 ELSE 0 END AS is_broker,
     first_name,
     last_name
     FROM customers LEFT JOIN brokers on lower(customers.email)=brokers.broker_email
