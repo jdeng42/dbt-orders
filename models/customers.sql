@@ -47,8 +47,7 @@ final as (
         average_days_sold_after_onsale,
         average_days_sold_before_event,
         customer_orders.count_transferred_tickets,
-        customer_orders.count_transfers,
-
+        customer_orders.count_transfers
     from customers
     left join customer_orders using (customer_unique_id)
 )
