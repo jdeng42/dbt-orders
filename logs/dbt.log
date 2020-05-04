@@ -21137,3 +21137,676 @@ drop view if exists "data_platform_prod"."data_science"."customers__dbt_backup" 
 Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
 2020-04-29 01:34:54.800310 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107ccf9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10790a8d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107ab5a50>]}
 2020-04-29 01:34:54.800528 (MainThread): Flushing usage events
+2020-04-29 17:44:08.116367 (MainThread): Running with dbt=0.16.1
+2020-04-29 17:44:08.251069 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/jdeng/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-04-29 17:44:08.252186 (MainThread): Tracking: tracking
+2020-04-29 17:44:08.260741 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108b71290>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108b7fc10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108926a50>]}
+2020-04-29 17:44:08.291320 (MainThread): Partial parsing not enabled
+2020-04-29 17:44:08.296762 (MainThread): Parsing macros/core.sql
+2020-04-29 17:44:08.311413 (MainThread): Parsing macros/materializations/helpers.sql
+2020-04-29 17:44:08.323753 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-04-29 17:44:08.327491 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-04-29 17:44:08.352388 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-04-29 17:44:08.391689 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-04-29 17:44:08.417794 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-04-29 17:44:08.421852 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-04-29 17:44:08.430680 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-04-29 17:44:08.446507 (MainThread): Parsing macros/materializations/table/table.sql
+2020-04-29 17:44:08.454422 (MainThread): Parsing macros/materializations/view/view.sql
+2020-04-29 17:44:08.462597 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-04-29 17:44:08.469233 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-04-29 17:44:08.471071 (MainThread): Parsing macros/etc/query.sql
+2020-04-29 17:44:08.472922 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-04-29 17:44:08.475408 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-04-29 17:44:08.478861 (MainThread): Parsing macros/etc/datetime.sql
+2020-04-29 17:44:08.488986 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-04-29 17:44:08.491719 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-04-29 17:44:08.494534 (MainThread): Parsing macros/adapters/common.sql
+2020-04-29 17:44:08.540014 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-04-29 17:44:08.542388 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-04-29 17:44:08.544036 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-04-29 17:44:08.545858 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-04-29 17:44:08.548917 (MainThread): Parsing macros/catalog.sql
+2020-04-29 17:44:08.552175 (MainThread): Parsing macros/relations.sql
+2020-04-29 17:44:08.554402 (MainThread): Parsing macros/adapters.sql
+2020-04-29 17:44:08.572678 (MainThread): Parsing macros/materializations/snapshot_merge.sql
+2020-04-29 17:44:08.591351 (MainThread): Partial parsing not enabled
+2020-04-29 17:44:08.619911 (MainThread): Acquiring new postgres connection "model.order_history.customers".
+2020-04-29 17:44:08.620044 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.641138 (MainThread): Acquiring new postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:08.641318 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.648368 (MainThread): Acquiring new postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:08.648492 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.653091 (MainThread): Acquiring new postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:08.653184 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.657459 (MainThread): Acquiring new postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:08.657550 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.662527 (MainThread): Acquiring new postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:08.662629 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.667795 (MainThread): Acquiring new postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:08.667890 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.673741 (MainThread): Acquiring new postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:08.673830 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.820106 (MainThread): Found 8 models, 0 tests, 0 snapshots, 0 analyses, 127 macros, 0 operations, 0 seed files, 0 sources
+2020-04-29 17:44:08.824010 (MainThread): 
+2020-04-29 17:44:08.824435 (MainThread): Acquiring new postgres connection "master".
+2020-04-29 17:44:08.824527 (MainThread): Opening a new connection, currently in state init
+2020-04-29 17:44:08.850927 (ThreadPoolExecutor-0_0): Acquiring new postgres connection "list_data_platform_prod".
+2020-04-29 17:44:08.851067 (ThreadPoolExecutor-0_0): Opening a new connection, currently in state init
+2020-04-29 17:44:08.944788 (ThreadPoolExecutor-0_0): Using postgres connection "list_data_platform_prod".
+2020-04-29 17:44:08.944924 (ThreadPoolExecutor-0_0): On list_data_platform_prod: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "connection_name": "list_data_platform_prod"} */
+
+    select distinct nspname from pg_namespace
+  
+2020-04-29 17:44:09.417596 (ThreadPoolExecutor-0_0): SQL status: SELECT in 0.47 seconds
+2020-04-29 17:44:09.463450 (ThreadPoolExecutor-1_0): Acquiring new postgres connection "list_data_platform_prod_data_science".
+2020-04-29 17:44:09.463701 (ThreadPoolExecutor-1_0): Re-using an available connection from the pool (formerly list_data_platform_prod).
+2020-04-29 17:44:09.465891 (ThreadPoolExecutor-1_0): Using postgres connection "list_data_platform_prod_data_science".
+2020-04-29 17:44:09.466020 (ThreadPoolExecutor-1_0): On list_data_platform_prod_data_science: BEGIN
+2020-04-29 17:44:09.502190 (ThreadPoolExecutor-1_0): SQL status: BEGIN in 0.04 seconds
+2020-04-29 17:44:09.502600 (ThreadPoolExecutor-1_0): Using postgres connection "list_data_platform_prod_data_science".
+2020-04-29 17:44:09.502857 (ThreadPoolExecutor-1_0): On list_data_platform_prod_data_science: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "connection_name": "list_data_platform_prod_data_science"} */
+select
+      'data_platform_prod' as database,
+      tablename as name,
+      schemaname as schema,
+      'table' as type
+    from pg_tables
+    where schemaname ilike 'data_science'
+    union all
+    select
+      'data_platform_prod' as database,
+      viewname as name,
+      schemaname as schema,
+      'view' as type
+    from pg_views
+    where schemaname ilike 'data_science'
+  
+2020-04-29 17:44:09.599501 (ThreadPoolExecutor-1_0): SQL status: SELECT in 0.10 seconds
+2020-04-29 17:44:09.605233 (ThreadPoolExecutor-1_0): On list_data_platform_prod_data_science: ROLLBACK
+2020-04-29 17:44:09.981511 (MainThread): Using postgres connection "master".
+2020-04-29 17:44:09.981639 (MainThread): On master: BEGIN
+2020-04-29 17:44:10.352581 (MainThread): SQL status: BEGIN in 0.37 seconds
+2020-04-29 17:44:10.352869 (MainThread): Using postgres connection "master".
+2020-04-29 17:44:10.353038 (MainThread): On master: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "connection_name": "master"} */
+with relation as (
+        select
+            pg_rewrite.ev_class as class,
+            pg_rewrite.oid as id
+        from pg_rewrite
+    ),
+    class as (
+        select
+            oid as id,
+            relname as name,
+            relnamespace as schema,
+            relkind as kind
+        from pg_class
+    ),
+    dependency as (
+        select
+            pg_depend.objid as id,
+            pg_depend.refobjid as ref
+        from pg_depend
+    ),
+    schema as (
+        select
+            pg_namespace.oid as id,
+            pg_namespace.nspname as name
+        from pg_namespace
+        where nspname != 'information_schema' and nspname not like 'pg\_%'
+    ),
+    referenced as (
+        select
+            relation.id AS id,
+            referenced_class.name ,
+            referenced_class.schema ,
+            referenced_class.kind
+        from relation
+        join class as referenced_class on relation.class=referenced_class.id
+        where referenced_class.kind in ('r', 'v')
+    ),
+    relationships as (
+        select
+            referenced.name as referenced_name,
+            referenced.schema as referenced_schema_id,
+            dependent_class.name as dependent_name,
+            dependent_class.schema as dependent_schema_id,
+            referenced.kind as kind
+        from referenced
+        join dependency on referenced.id=dependency.id
+        join class as dependent_class on dependency.ref=dependent_class.id
+        where
+            (referenced.name != dependent_class.name or
+             referenced.schema != dependent_class.schema)
+    )
+
+    select
+        referenced_schema.name as referenced_schema,
+        relationships.referenced_name as referenced_name,
+        dependent_schema.name as dependent_schema,
+        relationships.dependent_name as dependent_name
+    from relationships
+    join schema as dependent_schema on relationships.dependent_schema_id=dependent_schema.id
+    join schema as referenced_schema on relationships.referenced_schema_id=referenced_schema.id
+    group by referenced_schema, referenced_name, dependent_schema, dependent_name
+    order by referenced_schema, referenced_name, dependent_schema, dependent_name;
+2020-04-29 17:44:10.497133 (MainThread): SQL status: SELECT in 0.14 seconds
+2020-04-29 17:44:10.567090 (MainThread): On master: ROLLBACK
+2020-04-29 17:44:10.607853 (MainThread): Using postgres connection "master".
+2020-04-29 17:44:10.608021 (MainThread): On master: BEGIN
+2020-04-29 17:44:10.717976 (MainThread): SQL status: BEGIN in 0.11 seconds
+2020-04-29 17:44:10.718411 (MainThread): On master: COMMIT
+2020-04-29 17:44:10.718656 (MainThread): Using postgres connection "master".
+2020-04-29 17:44:10.718814 (MainThread): On master: COMMIT
+2020-04-29 17:44:10.756809 (MainThread): SQL status: COMMIT in 0.04 seconds
+2020-04-29 17:44:10.757676 (MainThread): 10:44:10 | Concurrency: 1 threads (target='dev')
+2020-04-29 17:44:10.757919 (MainThread): 10:44:10 | 
+2020-04-29 17:44:10.761869 (Thread-1): Began running node model.order_history.stg_flash
+2020-04-29 17:44:10.762248 (Thread-1): 10:44:10 | 1 of 8 START view model data_science.stg_flash....................... [RUN]
+2020-04-29 17:44:10.762570 (Thread-1): Acquiring new postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:10.762681 (Thread-1): Re-using an available connection from the pool (formerly list_data_platform_prod_data_science).
+2020-04-29 17:44:10.762798 (Thread-1): Compiling model.order_history.stg_flash
+2020-04-29 17:44:10.777243 (Thread-1): Writing injected SQL for node "model.order_history.stg_flash"
+2020-04-29 17:44:10.778218 (Thread-1): finished collecting timing info
+2020-04-29 17:44:10.816632 (Thread-1): Using postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:10.816790 (Thread-1): On model.order_history.stg_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_flash"} */
+drop view if exists "data_platform_prod"."data_science"."stg_flash__dbt_tmp" cascade
+2020-04-29 17:44:10.891111 (Thread-1): SQL status: DROP VIEW in 0.07 seconds
+2020-04-29 17:44:10.895622 (Thread-1): Using postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:10.895798 (Thread-1): On model.order_history.stg_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_flash"} */
+drop view if exists "data_platform_prod"."data_science"."stg_flash__dbt_backup" cascade
+2020-04-29 17:44:10.935944 (Thread-1): SQL status: DROP VIEW in 0.04 seconds
+2020-04-29 17:44:10.938310 (Thread-1): Writing runtime SQL for node "model.order_history.stg_flash"
+2020-04-29 17:44:10.938900 (Thread-1): Using postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:10.939017 (Thread-1): On model.order_history.stg_flash: BEGIN
+2020-04-29 17:44:10.975054 (Thread-1): SQL status: BEGIN in 0.04 seconds
+2020-04-29 17:44:10.975336 (Thread-1): Using postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:10.975505 (Thread-1): On model.order_history.stg_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_flash"} */
+
+  create view "data_platform_prod"."data_science"."stg_flash__dbt_tmp" as (
+    SELECT
+    ticket_state,
+    ticket_id,
+    transfer_action_id,
+    fk_order_unique_id,
+    fk_seat_unique_id
+FROM
+    flash.tickets LEFT JOIN flash.forwards USING (ticket_id)
+  );
+
+2020-04-29 17:44:11.023153 (Thread-1): SQL status: CREATE VIEW in 0.05 seconds
+2020-04-29 17:44:11.029172 (Thread-1): Using postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:11.029308 (Thread-1): On model.order_history.stg_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_flash"} */
+alter table "data_platform_prod"."data_science"."stg_flash" rename to "stg_flash__dbt_backup"
+2020-04-29 17:44:11.068050 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:11.071962 (Thread-1): Using postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:11.072122 (Thread-1): On model.order_history.stg_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_flash"} */
+alter table "data_platform_prod"."data_science"."stg_flash__dbt_tmp" rename to "stg_flash"
+2020-04-29 17:44:11.109212 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:11.111121 (Thread-1): On model.order_history.stg_flash: COMMIT
+2020-04-29 17:44:11.111317 (Thread-1): Using postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:11.111478 (Thread-1): On model.order_history.stg_flash: COMMIT
+2020-04-29 17:44:12.490642 (Thread-1): SQL status: COMMIT in 1.38 seconds
+2020-04-29 17:44:12.493645 (Thread-1): Using postgres connection "model.order_history.stg_flash".
+2020-04-29 17:44:12.493885 (Thread-1): On model.order_history.stg_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_flash"} */
+drop view if exists "data_platform_prod"."data_science"."stg_flash__dbt_backup" cascade
+2020-04-29 17:44:13.391695 (Thread-1): SQL status: DROP VIEW in 0.90 seconds
+2020-04-29 17:44:13.394277 (Thread-1): finished collecting timing info
+2020-04-29 17:44:13.394927 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb22783a-6277-43f1-af70-acca7c1a7c9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f49810>]}
+2020-04-29 17:44:13.395168 (Thread-1): 10:44:13 | 1 of 8 OK created view model data_science.stg_flash.................. [CREATE VIEW in 2.63s]
+2020-04-29 17:44:13.395309 (Thread-1): Finished running node model.order_history.stg_flash
+2020-04-29 17:44:13.395470 (Thread-1): Began running node model.order_history.stg_order
+2020-04-29 17:44:13.395840 (Thread-1): 10:44:13 | 2 of 8 START view model data_science.stg_order....................... [RUN]
+2020-04-29 17:44:13.396295 (Thread-1): Acquiring new postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:13.396407 (Thread-1): Re-using an available connection from the pool (formerly model.order_history.stg_flash).
+2020-04-29 17:44:13.396507 (Thread-1): Compiling model.order_history.stg_order
+2020-04-29 17:44:13.401924 (Thread-1): Writing injected SQL for node "model.order_history.stg_order"
+2020-04-29 17:44:13.402375 (Thread-1): finished collecting timing info
+2020-04-29 17:44:13.409198 (Thread-1): Using postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:13.409352 (Thread-1): On model.order_history.stg_order: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_order"} */
+drop view if exists "data_platform_prod"."data_science"."stg_order__dbt_tmp" cascade
+2020-04-29 17:44:13.786235 (Thread-1): SQL status: DROP VIEW in 0.38 seconds
+2020-04-29 17:44:13.790406 (Thread-1): Using postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:13.790560 (Thread-1): On model.order_history.stg_order: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_order"} */
+drop view if exists "data_platform_prod"."data_science"."stg_order__dbt_backup" cascade
+2020-04-29 17:44:14.049737 (Thread-1): SQL status: DROP VIEW in 0.26 seconds
+2020-04-29 17:44:14.052768 (Thread-1): Writing runtime SQL for node "model.order_history.stg_order"
+2020-04-29 17:44:14.053357 (Thread-1): Using postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:14.053513 (Thread-1): On model.order_history.stg_order: BEGIN
+2020-04-29 17:44:14.090110 (Thread-1): SQL status: BEGIN in 0.04 seconds
+2020-04-29 17:44:14.090561 (Thread-1): Using postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:14.090765 (Thread-1): On model.order_history.stg_order: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_order"} */
+
+  create view "data_platform_prod"."data_science"."stg_order__dbt_tmp" as (
+    select
+    order_ticket_unique_id,
+    order_unique_id,
+    customer_unique_id,
+    amount_gross,
+    sale_datetime,
+    zone_unique_id,
+    pricing_mode_id,
+    seat_unique_id,
+    ticketing.order_tickets.event_unique_id,
+    is_canceled
+from ticketing.order_tickets
+INNER JOIN ticketing.price_codes USING(price_code_unique_id)
+INNER JOIN ticketing.zones USING (zone_unique_id)
+WHERE 
+lower(zone_type_description)  in ('admissions', 'premium seating') AND 
+is_canceled is FALSE -- where shall this condition lives?
+  );
+
+2020-04-29 17:44:14.162502 (Thread-1): SQL status: CREATE VIEW in 0.07 seconds
+2020-04-29 17:44:14.169767 (Thread-1): Using postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:14.169911 (Thread-1): On model.order_history.stg_order: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_order"} */
+alter table "data_platform_prod"."data_science"."stg_order" rename to "stg_order__dbt_backup"
+2020-04-29 17:44:14.211694 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:14.245849 (Thread-1): Using postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:14.246047 (Thread-1): On model.order_history.stg_order: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_order"} */
+alter table "data_platform_prod"."data_science"."stg_order__dbt_tmp" rename to "stg_order"
+2020-04-29 17:44:14.283604 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:14.285257 (Thread-1): On model.order_history.stg_order: COMMIT
+2020-04-29 17:44:14.285419 (Thread-1): Using postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:14.285554 (Thread-1): On model.order_history.stg_order: COMMIT
+2020-04-29 17:44:14.922844 (Thread-1): SQL status: COMMIT in 0.64 seconds
+2020-04-29 17:44:14.926157 (Thread-1): Using postgres connection "model.order_history.stg_order".
+2020-04-29 17:44:14.926316 (Thread-1): On model.order_history.stg_order: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_order"} */
+drop view if exists "data_platform_prod"."data_science"."stg_order__dbt_backup" cascade
+2020-04-29 17:44:16.439313 (Thread-1): SQL status: DROP VIEW in 1.51 seconds
+2020-04-29 17:44:16.443605 (Thread-1): finished collecting timing info
+2020-04-29 17:44:16.444459 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb22783a-6277-43f1-af70-acca7c1a7c9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1062ecb90>]}
+2020-04-29 17:44:16.444767 (Thread-1): 10:44:16 | 2 of 8 OK created view model data_science.stg_order.................. [CREATE VIEW in 3.05s]
+2020-04-29 17:44:16.444949 (Thread-1): Finished running node model.order_history.stg_order
+2020-04-29 17:44:16.445136 (Thread-1): Began running node model.order_history.stg_customers
+2020-04-29 17:44:16.445571 (Thread-1): 10:44:16 | 3 of 8 START view model data_science.stg_customers................... [RUN]
+2020-04-29 17:44:16.446394 (Thread-1): Acquiring new postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:16.446561 (Thread-1): Re-using an available connection from the pool (formerly model.order_history.stg_order).
+2020-04-29 17:44:16.446680 (Thread-1): Compiling model.order_history.stg_customers
+2020-04-29 17:44:16.452636 (Thread-1): Writing injected SQL for node "model.order_history.stg_customers"
+2020-04-29 17:44:16.453096 (Thread-1): finished collecting timing info
+2020-04-29 17:44:16.460440 (Thread-1): Using postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:16.460590 (Thread-1): On model.order_history.stg_customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_customers"} */
+drop view if exists "data_platform_prod"."data_science"."stg_customers__dbt_tmp" cascade
+2020-04-29 17:44:16.698773 (Thread-1): SQL status: DROP VIEW in 0.24 seconds
+2020-04-29 17:44:16.701365 (Thread-1): Using postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:16.701483 (Thread-1): On model.order_history.stg_customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_customers"} */
+drop view if exists "data_platform_prod"."data_science"."stg_customers__dbt_backup" cascade
+2020-04-29 17:44:16.880742 (Thread-1): SQL status: DROP VIEW in 0.18 seconds
+2020-04-29 17:44:16.883797 (Thread-1): Writing runtime SQL for node "model.order_history.stg_customers"
+2020-04-29 17:44:16.884507 (Thread-1): Using postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:16.884655 (Thread-1): On model.order_history.stg_customers: BEGIN
+2020-04-29 17:44:16.921766 (Thread-1): SQL status: BEGIN in 0.04 seconds
+2020-04-29 17:44:16.922255 (Thread-1): Using postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:16.922474 (Thread-1): On model.order_history.stg_customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_customers"} */
+
+  create view "data_platform_prod"."data_science"."stg_customers__dbt_tmp" as (
+    select
+    customer_unique_id,
+    email,
+    first_name,
+    last_name
+from ticketing.customers
+  );
+
+2020-04-29 17:44:16.981201 (Thread-1): SQL status: CREATE VIEW in 0.06 seconds
+2020-04-29 17:44:16.986787 (Thread-1): Using postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:16.986953 (Thread-1): On model.order_history.stg_customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_customers"} */
+alter table "data_platform_prod"."data_science"."stg_customers" rename to "stg_customers__dbt_backup"
+2020-04-29 17:44:17.027668 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:17.030723 (Thread-1): Using postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:17.030857 (Thread-1): On model.order_history.stg_customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_customers"} */
+alter table "data_platform_prod"."data_science"."stg_customers__dbt_tmp" rename to "stg_customers"
+2020-04-29 17:44:17.070709 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:17.072517 (Thread-1): On model.order_history.stg_customers: COMMIT
+2020-04-29 17:44:17.072700 (Thread-1): Using postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:17.072863 (Thread-1): On model.order_history.stg_customers: COMMIT
+2020-04-29 17:44:17.271963 (Thread-1): SQL status: COMMIT in 0.20 seconds
+2020-04-29 17:44:17.276874 (Thread-1): Using postgres connection "model.order_history.stg_customers".
+2020-04-29 17:44:17.277112 (Thread-1): On model.order_history.stg_customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_customers"} */
+drop view if exists "data_platform_prod"."data_science"."stg_customers__dbt_backup" cascade
+2020-04-29 17:44:17.482167 (Thread-1): SQL status: DROP VIEW in 0.20 seconds
+2020-04-29 17:44:17.486103 (Thread-1): finished collecting timing info
+2020-04-29 17:44:17.486972 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb22783a-6277-43f1-af70-acca7c1a7c9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108eb63d0>]}
+2020-04-29 17:44:17.487263 (Thread-1): 10:44:17 | 3 of 8 OK created view model data_science.stg_customers.............. [CREATE VIEW in 1.04s]
+2020-04-29 17:44:17.487425 (Thread-1): Finished running node model.order_history.stg_customers
+2020-04-29 17:44:17.487589 (Thread-1): Began running node model.order_history.stg_events
+2020-04-29 17:44:17.487843 (Thread-1): 10:44:17 | 4 of 8 START view model data_science.stg_events...................... [RUN]
+2020-04-29 17:44:17.488428 (Thread-1): Acquiring new postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:17.488676 (Thread-1): Re-using an available connection from the pool (formerly model.order_history.stg_customers).
+2020-04-29 17:44:17.488814 (Thread-1): Compiling model.order_history.stg_events
+2020-04-29 17:44:17.495087 (Thread-1): Writing injected SQL for node "model.order_history.stg_events"
+2020-04-29 17:44:17.495556 (Thread-1): finished collecting timing info
+2020-04-29 17:44:17.503517 (Thread-1): Using postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:17.503704 (Thread-1): On model.order_history.stg_events: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_events"} */
+drop view if exists "data_platform_prod"."data_science"."stg_events__dbt_tmp" cascade
+2020-04-29 17:44:17.704600 (Thread-1): SQL status: DROP VIEW in 0.20 seconds
+2020-04-29 17:44:17.707389 (Thread-1): Using postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:17.707522 (Thread-1): On model.order_history.stg_events: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_events"} */
+drop view if exists "data_platform_prod"."data_science"."stg_events__dbt_backup" cascade
+2020-04-29 17:44:17.935991 (Thread-1): SQL status: DROP VIEW in 0.23 seconds
+2020-04-29 17:44:17.938542 (Thread-1): Writing runtime SQL for node "model.order_history.stg_events"
+2020-04-29 17:44:17.939220 (Thread-1): Using postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:17.939403 (Thread-1): On model.order_history.stg_events: BEGIN
+2020-04-29 17:44:18.004735 (Thread-1): SQL status: BEGIN in 0.07 seconds
+2020-04-29 17:44:18.005039 (Thread-1): Using postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:18.005191 (Thread-1): On model.order_history.stg_events: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_events"} */
+
+  create view "data_platform_prod"."data_science"."stg_events__dbt_tmp" as (
+    SELECT
+    event_unique_id,
+    onsale_date,
+    event_datetime
+FROM
+    ticketing.events
+    INNER JOIN analytics.event_onsale USING (event_unique_id)
+WHERE event_name NOT ilike 'test event%'
+      AND event_name NOT ilike '%base event%'
+      AND event_name NOT ilike '% test event%'
+      AND event_name NOT ilike '%- RR Base%'
+      AND (nvl(ticketing.events.is_exclude,false)) is false
+  );
+
+2020-04-29 17:44:18.061424 (Thread-1): SQL status: CREATE VIEW in 0.06 seconds
+2020-04-29 17:44:18.065667 (Thread-1): Using postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:18.065832 (Thread-1): On model.order_history.stg_events: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_events"} */
+alter table "data_platform_prod"."data_science"."stg_events__dbt_tmp" rename to "stg_events"
+2020-04-29 17:44:18.107508 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:18.108699 (Thread-1): On model.order_history.stg_events: COMMIT
+2020-04-29 17:44:18.108830 (Thread-1): Using postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:18.108939 (Thread-1): On model.order_history.stg_events: COMMIT
+2020-04-29 17:44:18.319831 (Thread-1): SQL status: COMMIT in 0.21 seconds
+2020-04-29 17:44:18.323057 (Thread-1): Using postgres connection "model.order_history.stg_events".
+2020-04-29 17:44:18.323287 (Thread-1): On model.order_history.stg_events: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.stg_events"} */
+drop view if exists "data_platform_prod"."data_science"."stg_events__dbt_backup" cascade
+2020-04-29 17:44:18.536238 (Thread-1): SQL status: DROP VIEW in 0.21 seconds
+2020-04-29 17:44:18.539013 (Thread-1): finished collecting timing info
+2020-04-29 17:44:18.539660 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb22783a-6277-43f1-af70-acca7c1a7c9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108e6ae50>]}
+2020-04-29 17:44:18.539981 (Thread-1): 10:44:18 | 4 of 8 OK created view model data_science.stg_events................. [CREATE VIEW in 1.05s]
+2020-04-29 17:44:18.540119 (Thread-1): Finished running node model.order_history.stg_events
+2020-04-29 17:44:18.540255 (Thread-1): Began running node model.order_history.order_flash
+2020-04-29 17:44:18.540458 (Thread-1): 10:44:18 | 5 of 8 START view model data_science.order_flash..................... [RUN]
+2020-04-29 17:44:18.540765 (Thread-1): Acquiring new postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:18.540864 (Thread-1): Re-using an available connection from the pool (formerly model.order_history.stg_events).
+2020-04-29 17:44:18.540957 (Thread-1): Compiling model.order_history.order_flash
+2020-04-29 17:44:18.550032 (Thread-1): Writing injected SQL for node "model.order_history.order_flash"
+2020-04-29 17:44:18.550445 (Thread-1): finished collecting timing info
+2020-04-29 17:44:18.557857 (Thread-1): Using postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:18.558398 (Thread-1): On model.order_history.order_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash"} */
+drop view if exists "data_platform_prod"."data_science"."order_flash__dbt_tmp" cascade
+2020-04-29 17:44:18.840074 (Thread-1): SQL status: DROP VIEW in 0.28 seconds
+2020-04-29 17:44:18.843451 (Thread-1): Using postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:18.843636 (Thread-1): On model.order_history.order_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash"} */
+drop view if exists "data_platform_prod"."data_science"."order_flash__dbt_backup" cascade
+2020-04-29 17:44:19.554773 (Thread-1): SQL status: DROP VIEW in 0.71 seconds
+2020-04-29 17:44:19.557492 (Thread-1): Writing runtime SQL for node "model.order_history.order_flash"
+2020-04-29 17:44:19.558081 (Thread-1): Using postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:19.558244 (Thread-1): On model.order_history.order_flash: BEGIN
+2020-04-29 17:44:19.596556 (Thread-1): SQL status: BEGIN in 0.04 seconds
+2020-04-29 17:44:19.596851 (Thread-1): Using postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:19.597023 (Thread-1): On model.order_history.order_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash"} */
+
+  create view "data_platform_prod"."data_science"."order_flash__dbt_tmp" as (
+    with orders as (
+    select * from "data_platform_prod"."data_science"."stg_order"
+),
+flash as (
+    select * from "data_platform_prod"."data_science"."stg_flash"
+),
+final as (
+    SELECT
+    order_ticket_unique_id,
+    order_unique_id,
+    customer_unique_id,
+    amount_gross,
+    sale_datetime,
+    pricing_mode_id,
+    transfer_action_id,
+    event_unique_id,
+    ticket_id,
+    ticket_state
+    from orders LEFT JOIN flash ON flash.fk_order_unique_id=orders.order_unique_id
+        and flash.fk_seat_unique_id=orders.seat_unique_id
+)
+select * from final
+  );
+
+2020-04-29 17:44:19.656184 (Thread-1): SQL status: CREATE VIEW in 0.06 seconds
+2020-04-29 17:44:19.659538 (Thread-1): Using postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:19.659754 (Thread-1): On model.order_history.order_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash"} */
+alter table "data_platform_prod"."data_science"."order_flash__dbt_tmp" rename to "order_flash"
+2020-04-29 17:44:19.698149 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:19.700118 (Thread-1): On model.order_history.order_flash: COMMIT
+2020-04-29 17:44:19.700312 (Thread-1): Using postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:19.700474 (Thread-1): On model.order_history.order_flash: COMMIT
+2020-04-29 17:44:19.943635 (Thread-1): SQL status: COMMIT in 0.24 seconds
+2020-04-29 17:44:19.947026 (Thread-1): Using postgres connection "model.order_history.order_flash".
+2020-04-29 17:44:19.947177 (Thread-1): On model.order_history.order_flash: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash"} */
+drop view if exists "data_platform_prod"."data_science"."order_flash__dbt_backup" cascade
+2020-04-29 17:44:20.200900 (Thread-1): SQL status: DROP VIEW in 0.25 seconds
+2020-04-29 17:44:20.204552 (Thread-1): finished collecting timing info
+2020-04-29 17:44:20.205414 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb22783a-6277-43f1-af70-acca7c1a7c9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109166350>]}
+2020-04-29 17:44:20.205673 (Thread-1): 10:44:20 | 5 of 8 OK created view model data_science.order_flash................ [CREATE VIEW in 1.66s]
+2020-04-29 17:44:20.205826 (Thread-1): Finished running node model.order_history.order_flash
+2020-04-29 17:44:20.205981 (Thread-1): Began running node model.order_history.customer_broker
+2020-04-29 17:44:20.206349 (Thread-1): 10:44:20 | 6 of 8 START view model data_science.customer_broker................. [RUN]
+2020-04-29 17:44:20.206913 (Thread-1): Acquiring new postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:20.207091 (Thread-1): Re-using an available connection from the pool (formerly model.order_history.order_flash).
+2020-04-29 17:44:20.207280 (Thread-1): Compiling model.order_history.customer_broker
+2020-04-29 17:44:20.214956 (Thread-1): Writing injected SQL for node "model.order_history.customer_broker"
+2020-04-29 17:44:20.215405 (Thread-1): finished collecting timing info
+2020-04-29 17:44:20.222807 (Thread-1): Using postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:20.222944 (Thread-1): On model.order_history.customer_broker: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customer_broker"} */
+drop view if exists "data_platform_prod"."data_science"."customer_broker__dbt_tmp" cascade
+2020-04-29 17:44:21.158862 (Thread-1): SQL status: DROP VIEW in 0.94 seconds
+2020-04-29 17:44:21.163001 (Thread-1): Using postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:21.163211 (Thread-1): On model.order_history.customer_broker: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customer_broker"} */
+drop view if exists "data_platform_prod"."data_science"."customer_broker__dbt_backup" cascade
+2020-04-29 17:44:22.425451 (Thread-1): SQL status: DROP VIEW in 1.26 seconds
+2020-04-29 17:44:22.427763 (Thread-1): Writing runtime SQL for node "model.order_history.customer_broker"
+2020-04-29 17:44:22.428370 (Thread-1): Using postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:22.428509 (Thread-1): On model.order_history.customer_broker: BEGIN
+2020-04-29 17:44:22.467442 (Thread-1): SQL status: BEGIN in 0.04 seconds
+2020-04-29 17:44:22.467936 (Thread-1): Using postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:22.468118 (Thread-1): On model.order_history.customer_broker: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customer_broker"} */
+
+  create view "data_platform_prod"."data_science"."customer_broker__dbt_tmp" as (
+    with customers as (
+    select * from "data_platform_prod"."data_science"."stg_customers"
+),
+
+brokers as (
+    SELECT email as broker_email
+    FROM analytics.yield_manager_partners
+),
+
+final as (
+    SELECT 
+    customer_unique_id,
+    email,
+    CASE WHEN broker_email is not null THEN 1 ELSE 0 END AS is_broker,
+    first_name,
+    last_name
+    FROM customers LEFT JOIN brokers on lower(customers.email)=brokers.broker_email
+)
+select * from final
+  );
+
+2020-04-29 17:44:22.519141 (Thread-1): SQL status: CREATE VIEW in 0.05 seconds
+2020-04-29 17:44:22.522055 (Thread-1): Using postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:22.522196 (Thread-1): On model.order_history.customer_broker: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customer_broker"} */
+alter table "data_platform_prod"."data_science"."customer_broker__dbt_tmp" rename to "customer_broker"
+2020-04-29 17:44:22.559905 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:22.560934 (Thread-1): On model.order_history.customer_broker: COMMIT
+2020-04-29 17:44:22.561055 (Thread-1): Using postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:22.561150 (Thread-1): On model.order_history.customer_broker: COMMIT
+2020-04-29 17:44:22.760930 (Thread-1): SQL status: COMMIT in 0.20 seconds
+2020-04-29 17:44:22.764479 (Thread-1): Using postgres connection "model.order_history.customer_broker".
+2020-04-29 17:44:22.764653 (Thread-1): On model.order_history.customer_broker: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customer_broker"} */
+drop view if exists "data_platform_prod"."data_science"."customer_broker__dbt_backup" cascade
+2020-04-29 17:44:23.061958 (Thread-1): SQL status: DROP VIEW in 0.30 seconds
+2020-04-29 17:44:23.064306 (Thread-1): finished collecting timing info
+2020-04-29 17:44:23.064857 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb22783a-6277-43f1-af70-acca7c1a7c9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108e03410>]}
+2020-04-29 17:44:23.065060 (Thread-1): 10:44:23 | 6 of 8 OK created view model data_science.customer_broker............ [CREATE VIEW in 2.86s]
+2020-04-29 17:44:23.065178 (Thread-1): Finished running node model.order_history.customer_broker
+2020-04-29 17:44:23.065297 (Thread-1): Began running node model.order_history.order_flash_event
+2020-04-29 17:44:23.065476 (Thread-1): 10:44:23 | 7 of 8 START view model data_science.order_flash_event............... [RUN]
+2020-04-29 17:44:23.065959 (Thread-1): Acquiring new postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:23.066117 (Thread-1): Re-using an available connection from the pool (formerly model.order_history.customer_broker).
+2020-04-29 17:44:23.066288 (Thread-1): Compiling model.order_history.order_flash_event
+2020-04-29 17:44:23.073004 (Thread-1): Writing injected SQL for node "model.order_history.order_flash_event"
+2020-04-29 17:44:23.073386 (Thread-1): finished collecting timing info
+2020-04-29 17:44:23.079281 (Thread-1): Using postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:23.079420 (Thread-1): On model.order_history.order_flash_event: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash_event"} */
+drop view if exists "data_platform_prod"."data_science"."order_flash_event__dbt_tmp" cascade
+2020-04-29 17:44:23.286472 (Thread-1): SQL status: DROP VIEW in 0.21 seconds
+2020-04-29 17:44:23.290514 (Thread-1): Using postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:23.290678 (Thread-1): On model.order_history.order_flash_event: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash_event"} */
+drop view if exists "data_platform_prod"."data_science"."order_flash_event__dbt_backup" cascade
+2020-04-29 17:44:23.481317 (Thread-1): SQL status: DROP VIEW in 0.19 seconds
+2020-04-29 17:44:23.484050 (Thread-1): Writing runtime SQL for node "model.order_history.order_flash_event"
+2020-04-29 17:44:23.484648 (Thread-1): Using postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:23.484808 (Thread-1): On model.order_history.order_flash_event: BEGIN
+2020-04-29 17:44:23.521068 (Thread-1): SQL status: BEGIN in 0.04 seconds
+2020-04-29 17:44:23.521275 (Thread-1): Using postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:23.521390 (Thread-1): On model.order_history.order_flash_event: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash_event"} */
+
+  create view "data_platform_prod"."data_science"."order_flash_event__dbt_tmp" as (
+    with order_flash as (
+    select * from "data_platform_prod"."data_science"."order_flash"
+),
+events as (
+    select * from "data_platform_prod"."data_science"."stg_events"
+)
+
+select * FROM order_flash INNER JOIN events USING (event_unique_id)
+  );
+
+2020-04-29 17:44:23.572565 (Thread-1): SQL status: CREATE VIEW in 0.05 seconds
+2020-04-29 17:44:23.576392 (Thread-1): Using postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:23.576593 (Thread-1): On model.order_history.order_flash_event: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash_event"} */
+alter table "data_platform_prod"."data_science"."order_flash_event__dbt_tmp" rename to "order_flash_event"
+2020-04-29 17:44:23.628888 (Thread-1): SQL status: ALTER TABLE in 0.05 seconds
+2020-04-29 17:44:23.630189 (Thread-1): On model.order_history.order_flash_event: COMMIT
+2020-04-29 17:44:23.630374 (Thread-1): Using postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:23.630488 (Thread-1): On model.order_history.order_flash_event: COMMIT
+2020-04-29 17:44:24.057320 (Thread-1): SQL status: COMMIT in 0.43 seconds
+2020-04-29 17:44:24.060766 (Thread-1): Using postgres connection "model.order_history.order_flash_event".
+2020-04-29 17:44:24.060941 (Thread-1): On model.order_history.order_flash_event: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.order_flash_event"} */
+drop view if exists "data_platform_prod"."data_science"."order_flash_event__dbt_backup" cascade
+2020-04-29 17:44:24.295077 (Thread-1): SQL status: DROP VIEW in 0.23 seconds
+2020-04-29 17:44:24.298711 (Thread-1): finished collecting timing info
+2020-04-29 17:44:24.299558 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb22783a-6277-43f1-af70-acca7c1a7c9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108e03410>]}
+2020-04-29 17:44:24.299812 (Thread-1): 10:44:24 | 7 of 8 OK created view model data_science.order_flash_event.......... [CREATE VIEW in 1.23s]
+2020-04-29 17:44:24.299964 (Thread-1): Finished running node model.order_history.order_flash_event
+2020-04-29 17:44:24.300466 (Thread-1): Began running node model.order_history.customers
+2020-04-29 17:44:24.300653 (Thread-1): 10:44:24 | 8 of 8 START view model data_science.customers....................... [RUN]
+2020-04-29 17:44:24.300980 (Thread-1): Acquiring new postgres connection "model.order_history.customers".
+2020-04-29 17:44:24.301104 (Thread-1): Re-using an available connection from the pool (formerly model.order_history.order_flash_event).
+2020-04-29 17:44:24.301217 (Thread-1): Compiling model.order_history.customers
+2020-04-29 17:44:24.309710 (Thread-1): Writing injected SQL for node "model.order_history.customers"
+2020-04-29 17:44:24.310113 (Thread-1): finished collecting timing info
+2020-04-29 17:44:24.316745 (Thread-1): Using postgres connection "model.order_history.customers".
+2020-04-29 17:44:24.316886 (Thread-1): On model.order_history.customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customers"} */
+drop view if exists "data_platform_prod"."data_science"."customers__dbt_tmp" cascade
+2020-04-29 17:44:24.625576 (Thread-1): SQL status: DROP VIEW in 0.31 seconds
+2020-04-29 17:44:24.629215 (Thread-1): Using postgres connection "model.order_history.customers".
+2020-04-29 17:44:24.629339 (Thread-1): On model.order_history.customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customers"} */
+drop view if exists "data_platform_prod"."data_science"."customers__dbt_backup" cascade
+2020-04-29 17:44:24.897560 (Thread-1): SQL status: DROP VIEW in 0.27 seconds
+2020-04-29 17:44:24.899604 (Thread-1): Writing runtime SQL for node "model.order_history.customers"
+2020-04-29 17:44:24.900150 (Thread-1): Using postgres connection "model.order_history.customers".
+2020-04-29 17:44:24.900289 (Thread-1): On model.order_history.customers: BEGIN
+2020-04-29 17:44:24.936557 (Thread-1): SQL status: BEGIN in 0.04 seconds
+2020-04-29 17:44:24.936806 (Thread-1): Using postgres connection "model.order_history.customers".
+2020-04-29 17:44:24.936975 (Thread-1): On model.order_history.customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customers"} */
+
+  create view "data_platform_prod"."data_science"."customers__dbt_tmp" as (
+    with customers as (
+    select * from "data_platform_prod"."data_science"."customer_broker"
+),
+order_flash as (
+    select * from "data_platform_prod"."data_science"."order_flash_event"
+),
+
+customer_orders as (
+    select
+        customer_unique_id,
+        min(sale_datetime) as first_order_date,
+        max(sale_datetime) as most_recent_order_date,
+        COUNT(DISTINCT CASE WHEN (NOT COALESCE(pricing_mode_id = 1 , FALSE)) THEN 
+        order_ticket_unique_id ELSE NULL END) AS tickets_sold_no_comps,
+        COUNT(DISTINCT order_ticket_unique_id) AS number_of_tickets_sold,
+        COUNT(DISTINCT order_unique_id) AS number_of_orders,
+        SUM(amount_gross) AS total_revenue,
+        COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
+        ticket_id ELSE NULL END) AS count_transferred_tickets,
+        COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
+        transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers,
+
+        SUM(FLOOR(COALESCE(datediff(days, onsale_date, sale_datetime), 0))) / COUNT(DISTINCT CASE WHEN (datediff(days, onsale_date, sale_datetime))IS NOT NULL THEN 
+        order_ticket_unique_id  ELSE NULL END) AS average_days_sold_after_onsale,
+        SUM(FLOOR(COALESCE(datediff(days, sale_datetime, event_datetime), 0)))/ COUNT(DISTINCT CASE WHEN (datediff(days, sale_datetime, event_datetime))IS NOT NULL THEN 
+        order_ticket_unique_id  ELSE NULL END) AS average_days_sold_before_event
+
+    from order_flash
+    group by 1
+),
+final as (
+    select
+        customers.customer_unique_id,
+        customers.email,
+        customers.is_broker,
+        customer_orders.first_order_date,
+        customer_orders.most_recent_order_date,
+        customer_orders.tickets_sold_no_comps,
+        customer_orders.number_of_orders,
+        customer_orders.number_of_tickets_sold,
+        customer_orders.total_revenue,
+        average_days_sold_after_onsale,
+        average_days_sold_before_event,
+        customer_orders.count_transferred_tickets,
+        customer_orders.count_transfers
+    from customers
+    left join customer_orders using (customer_unique_id)
+)
+select * from final
+  );
+
+2020-04-29 17:44:24.998595 (Thread-1): SQL status: CREATE VIEW in 0.06 seconds
+2020-04-29 17:44:25.002867 (Thread-1): Using postgres connection "model.order_history.customers".
+2020-04-29 17:44:25.003023 (Thread-1): On model.order_history.customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customers"} */
+alter table "data_platform_prod"."data_science"."customers__dbt_tmp" rename to "customers"
+2020-04-29 17:44:25.041250 (Thread-1): SQL status: ALTER TABLE in 0.04 seconds
+2020-04-29 17:44:25.042467 (Thread-1): On model.order_history.customers: COMMIT
+2020-04-29 17:44:25.042609 (Thread-1): Using postgres connection "model.order_history.customers".
+2020-04-29 17:44:25.042722 (Thread-1): On model.order_history.customers: COMMIT
+2020-04-29 17:44:25.285799 (Thread-1): SQL status: COMMIT in 0.24 seconds
+2020-04-29 17:44:25.289999 (Thread-1): Using postgres connection "model.order_history.customers".
+2020-04-29 17:44:25.290263 (Thread-1): On model.order_history.customers: /* {"app": "dbt", "dbt_version": "0.16.1", "profile_name": "axs", "target_name": "dev", "node_id": "model.order_history.customers"} */
+drop view if exists "data_platform_prod"."data_science"."customers__dbt_backup" cascade
+2020-04-29 17:44:25.531887 (Thread-1): SQL status: DROP VIEW in 0.24 seconds
+2020-04-29 17:44:25.534752 (Thread-1): finished collecting timing info
+2020-04-29 17:44:25.535446 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'fb22783a-6277-43f1-af70-acca7c1a7c9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108e37a90>]}
+2020-04-29 17:44:25.535700 (Thread-1): 10:44:25 | 8 of 8 OK created view model data_science.customers.................. [CREATE VIEW in 1.23s]
+2020-04-29 17:44:25.535849 (Thread-1): Finished running node model.order_history.customers
+2020-04-29 17:44:25.559546 (MainThread): Using postgres connection "master".
+2020-04-29 17:44:25.559739 (MainThread): On master: BEGIN
+2020-04-29 17:44:25.818881 (MainThread): SQL status: BEGIN in 0.26 seconds
+2020-04-29 17:44:25.819110 (MainThread): On master: COMMIT
+2020-04-29 17:44:25.819227 (MainThread): Using postgres connection "master".
+2020-04-29 17:44:25.819331 (MainThread): On master: COMMIT
+2020-04-29 17:44:26.289108 (MainThread): SQL status: COMMIT in 0.47 seconds
+2020-04-29 17:44:26.290125 (MainThread): 10:44:26 | 
+2020-04-29 17:44:26.290590 (MainThread): 10:44:26 | Finished running 8 view models in 17.47s.
+2020-04-29 17:44:26.291099 (MainThread): Connection 'master' was left open.
+2020-04-29 17:44:26.291433 (MainThread): On master: Close
+2020-04-29 17:44:26.291850 (MainThread): Connection 'model.order_history.customers' was left open.
+2020-04-29 17:44:26.291988 (MainThread): On model.order_history.customers: Close
+2020-04-29 17:44:26.322363 (MainThread): 
+2020-04-29 17:44:26.322597 (MainThread): Completed successfully
+2020-04-29 17:44:26.322758 (MainThread): 
+Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+2020-04-29 17:44:26.322972 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108f4a810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x108bca3d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1068bda50>]}
+2020-04-29 17:44:26.323202 (MainThread): Flushing usage events

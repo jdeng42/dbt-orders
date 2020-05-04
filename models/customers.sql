@@ -14,11 +14,13 @@ customer_orders as (
         order_ticket_unique_id ELSE NULL END) AS tickets_sold_no_comps,
         COUNT(DISTINCT order_ticket_unique_id) AS number_of_tickets_sold,
         COUNT(DISTINCT order_unique_id) AS number_of_orders,
+        COUNT(DISTINCT event_unique_id) AS number_of_events,
         SUM(amount_gross) AS total_revenue,
         COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
         ticket_id ELSE NULL END) AS count_transferred_tickets,
         COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
         transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers,
+        
 
         SUM(FLOOR(COALESCE(datediff(days, onsale_date, sale_datetime), 0))) / COUNT(DISTINCT CASE WHEN (datediff(days, onsale_date, sale_datetime))IS NOT NULL THEN 
         order_ticket_unique_id  ELSE NULL END) AS average_days_sold_after_onsale,
