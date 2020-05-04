@@ -1,3 +1,5 @@
+{{ config(materialized='table') }}
+
 with customers as (
     select * from {{ ref('customer_broker')}}
 ),
@@ -20,7 +22,6 @@ customer_orders as (
         ticket_id ELSE NULL END) AS count_transferred_tickets,
         COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
         transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers,
-        
 
         SUM(FLOOR(COALESCE(datediff(days, onsale_date, sale_datetime), 0))) / COUNT(DISTINCT CASE WHEN (datediff(days, onsale_date, sale_datetime))IS NOT NULL THEN 
         order_ticket_unique_id  ELSE NULL END) AS average_days_sold_after_onsale,
