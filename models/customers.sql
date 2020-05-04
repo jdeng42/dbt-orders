@@ -18,15 +18,16 @@ customer_orders as (
         COUNT(DISTINCT order_unique_id) AS number_of_orders,
         COUNT(DISTINCT event_unique_id) AS number_of_events,
         SUM(amount_gross) AS total_revenue,
-        COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
-        ticket_id ELSE NULL END) AS count_transferred_tickets,
-        COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
-        transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers,
 
         SUM(FLOOR(COALESCE(datediff(days, onsale_date, sale_datetime), 0))) / COUNT(DISTINCT CASE WHEN (datediff(days, onsale_date, sale_datetime))IS NOT NULL THEN 
         order_ticket_unique_id  ELSE NULL END) AS average_days_sold_after_onsale,
         SUM(FLOOR(COALESCE(datediff(days, sale_datetime, event_datetime), 0)))/ COUNT(DISTINCT CASE WHEN (datediff(days, sale_datetime, event_datetime))IS NOT NULL THEN 
-        order_ticket_unique_id  ELSE NULL END) AS average_days_sold_before_event
+        order_ticket_unique_id  ELSE NULL END) AS average_days_sold_before_event,
+
+        COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
+        ticket_id ELSE NULL END) AS count_transferred_tickets,
+        COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
+        transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers
 
     from order_flash
     group by 1
@@ -41,11 +42,13 @@ final as (
         customer_orders.tickets_sold_no_comps,
         customer_orders.number_of_orders,
         customer_orders.number_of_tickets_sold,
+        customer_orders.number_of_events,
         customer_orders.total_revenue,
         average_days_sold_after_onsale,
         average_days_sold_before_event,
         customer_orders.count_transferred_tickets,
-        customer_orders.count_transfers
+        customer_orders.count_transfers,
+
     from customers
     left join customer_orders using (customer_unique_id)
 )
