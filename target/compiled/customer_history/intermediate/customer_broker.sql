@@ -1,5 +1,5 @@
 with customers as (
-    select * from {{ ref('stg_customers')}}
+    select * from "data_platform_prod"."data_science"."stg_customers"
 ),
 
 brokers as (

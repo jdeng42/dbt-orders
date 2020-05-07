@@ -13,4 +13,5 @@ from ticketing.order_tickets
 INNER JOIN ticketing.price_codes USING(price_code_unique_id)
 INNER JOIN ticketing.zones USING (zone_unique_id)
 WHERE 
-lower(zone_type_description)  in ('admissions', 'premium seating')
+lower(zone_type_description)  in ('admissions', 'premium seating') AND 
+is_canceled is FALSE -- where shall this condition lives?

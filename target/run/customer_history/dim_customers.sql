@@ -1,10 +1,14 @@
-{{ config(materialized='table') }}
+
+
+  create  table "data_platform_prod"."data_science"."dim_customers__dbt_tmp"
+  as (
+    
 
 with customers as (
-    select * from {{ ref('customer_broker')}}
+    select * from "data_platform_prod"."data_science"."stg_customers"
 ),
-order_flash as (
-    select * from {{ ref('order_flash_event')}}
+orders as (
+    select * from "data_platform_prod"."data_science"."order_flash_events"
 ),
 
 customer_orders as (
@@ -19,9 +23,9 @@ customer_orders as (
         COUNT(DISTINCT event_unique_id) AS number_of_events,
         SUM(amount_gross) AS total_revenue,
 
-        SUM(FLOOR(COALESCE(datediff(days, onsale_date, sale_datetime), 0))) / COUNT(DISTINCT CASE WHEN (datediff(days, onsale_date, sale_datetime))IS NOT NULL THEN 
+        SUM(FLOOR(COALESCE(days_sold_after_onsale, 0))) / COUNT(DISTINCT CASE WHEN days_sold_after_onsale IS NOT NULL THEN 
         order_ticket_unique_id  ELSE NULL END) AS average_days_sold_after_onsale,
-        SUM(FLOOR(COALESCE(datediff(days, sale_datetime, event_datetime), 0)))/ COUNT(DISTINCT CASE WHEN (datediff(days, sale_datetime, event_datetime))IS NOT NULL THEN 
+        SUM(FLOOR(COALESCE(days_sold_before_event, 0)))/ COUNT(DISTINCT CASE WHEN days_sold_before_event IS NOT NULL THEN 
         order_ticket_unique_id  ELSE NULL END) AS average_days_sold_before_event,
 
         COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
@@ -29,7 +33,7 @@ customer_orders as (
         COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
         transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers
 
-    from order_flash
+    from orders
     group by 1
 ),
 final as (
@@ -52,3 +56,4 @@ final as (
     left join customer_orders using (customer_unique_id)
 )
 select * from final
+  );

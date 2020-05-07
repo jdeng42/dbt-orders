@@ -1,8 +1,8 @@
 with orders as (
-    select * from {{ ref('stg_order')}}
+    select * from "data_platform_prod"."data_science"."stg_order"
 ),
 flash as (
-    select * from {{ ref('stg_flash')}}
+    select * from "data_platform_prod"."data_science"."stg_flash"
 ),
 final as (
     SELECT

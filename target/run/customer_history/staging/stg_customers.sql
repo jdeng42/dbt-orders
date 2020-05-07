@@ -1,4 +1,6 @@
-with customers as (
+
+  create view "data_platform_prod"."data_science"."stg_customers__dbt_tmp" as (
+    with customers as (
     SELECT
         customer_unique_id,
         email,
@@ -22,3 +24,4 @@ final as (
     FROM customers LEFT JOIN brokers on lower(customers.email)=brokers.broker_email
 )
 select * from final
+  );
