@@ -4,7 +4,7 @@ with customers as (
     select * from {{ ref('stg_customers')}}
 ),
 orders as (
-    select * from {{ ref('order_flash_events')}}
+    select * from {{ ref('order_flash_events_location')}}
 ),
 
 customer_orders as (
@@ -27,7 +27,9 @@ customer_orders as (
         COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
         ticket_id ELSE NULL END) AS count_transferred_tickets,
         COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
-        transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers
+        transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers,
+
+        AVG(order_distance_in_km) AS average_order_distance
 
     from orders
     group by 1 -- Not group by email address as some accounts don't have associated email
@@ -47,7 +49,8 @@ final as (
         average_days_sold_after_onsale,
         average_days_sold_before_event,
         customer_orders.count_transferred_tickets,
-        customer_orders.count_transfers
+        customer_orders.count_transfers,
+        average_order_distance
     from customers
     left join customer_orders using (customer_unique_id)
 )

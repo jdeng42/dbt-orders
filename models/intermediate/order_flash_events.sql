@@ -24,6 +24,7 @@ final as (
     events.event_unique_id,
     ticket_id,
     ticket_state,
+    venue_zip,
     datediff(days, onsale_date, sale_datetime) AS days_sold_after_onsale,
     datediff(days, sale_datetime, event_datetime) AS days_sold_before_event,
     is_canceled
@@ -31,4 +32,3 @@ final as (
 )
 
 SELECT * FROM final
-WHERE is_canceled is FALSE -- shall this condition live else?

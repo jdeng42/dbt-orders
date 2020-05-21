@@ -3,7 +3,8 @@ with customers as (
         customer_unique_id,
         email,
         first_name,
-        last_name
+        last_name,
+        zip
     From ticketing.customers
 ),
 
@@ -14,11 +15,8 @@ brokers as (
 
 final as (
     SELECT 
-        customer_unique_id,
-        email,
-        CASE WHEN broker_email is not null THEN 1 ELSE 0 END AS is_broker,
-        first_name,
-        last_name
+        customers.*,
+        CASE WHEN broker_email is not null THEN 1 ELSE 0 END AS is_broker
     FROM customers LEFT JOIN brokers on lower(customers.email)=brokers.broker_email
 )
 select * from final
