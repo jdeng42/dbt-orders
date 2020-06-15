@@ -7,6 +7,7 @@ with orders as (
 customers as (
     SELECT
         customer_unique_id,
+        email,
         zip
     FROM {{ref('stg_customers')}}
 ),
@@ -31,6 +32,7 @@ orders_zip as (
 final as (
     SELECT
         customer_unique_id,
+        email,
         order_ticket_unique_id,
         order_unique_id,
         amount_gross,
@@ -44,7 +46,8 @@ final as (
         days_sold_before_event,
         is_canceled,
         round(ST_DistanceSphere(ST_Point(customer_long, customer_lat), 
-        ST_Point(venue_long, venue_lat)) / 1000, 0) AS order_distance_in_km
+        ST_Point(venue_long, venue_lat)) / 1000, 0) AS order_distance_in_km,
+        order_distance_in_km / 1.6 AS order_distance_in_miles
     from customers_zip
     INNER join orders_zip using (customer_unique_id)
 )

@@ -9,7 +9,7 @@ orders as (
 
 customer_orders as (
     select
-        customer_unique_id,
+        email,
         min(sale_datetime) as first_order_date,
         max(sale_datetime) as most_recent_order_date,
         COUNT(DISTINCT CASE WHEN (NOT COALESCE(pricing_mode_id = 1 , FALSE)) THEN 
@@ -32,26 +32,6 @@ customer_orders as (
         AVG(order_distance_in_km) AS average_order_distance
 
     from orders
-    group by 1 -- Not group by email address as some accounts don't have associated email
-),
-final as (
-    select
-        customers.customer_unique_id,
-        customers.email,
-        customers.is_broker,
-        customer_orders.first_order_date,
-        customer_orders.most_recent_order_date,
-        customer_orders.tickets_sold_no_comps,
-        customer_orders.number_of_orders,
-        customer_orders.number_of_tickets_sold,
-        customer_orders.number_of_events,
-        customer_orders.total_revenue,
-        average_days_sold_after_onsale,
-        average_days_sold_before_event,
-        customer_orders.count_transferred_tickets,
-        customer_orders.count_transfers,
-        average_order_distance
-    from customers
-    left join customer_orders using (customer_unique_id)
+    group by 1 
 )
-select * from final
+select * from customer_orders

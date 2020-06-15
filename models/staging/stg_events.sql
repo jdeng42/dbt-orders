@@ -16,7 +16,7 @@ with events as (
 venues as (
     SELECT
         venue_unique_id,
-        venue_zip
+        left(venue_zip, 5) as venue_zip
         from ticketing.venues 
 ),
 final as (
