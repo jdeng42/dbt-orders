@@ -18,15 +18,18 @@ final as (
     order_unique_id,
     customer_unique_id,
     amount_gross,
+    channel,
     sale_datetime,
     pricing_mode_id,
     transfer_action_id,
     events.event_unique_id,
     ticket_id,
     ticket_state,
+    venue_unique_id,
     venue_zip,
     datediff(days, onsale_date, sale_datetime) AS days_sold_after_onsale,
     datediff(days, sale_datetime, event_datetime) AS days_sold_before_event,
+    major_category_name,
     is_canceled
     FROM order_flash INNER JOIN events USING (event_unique_id)
 )

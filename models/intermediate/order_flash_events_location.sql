@@ -36,6 +36,7 @@ final as (
         order_ticket_unique_id,
         order_unique_id,
         amount_gross,
+        channel,
         sale_datetime,
         pricing_mode_id,
         transfer_action_id,
@@ -45,6 +46,8 @@ final as (
         days_sold_after_onsale,
         days_sold_before_event,
         is_canceled,
+        venue_unique_id,
+        major_category_name,
         round(ST_DistanceSphere(ST_Point(customer_long, customer_lat), 
         ST_Point(venue_long, venue_lat)) / 1000, 0) AS order_distance_in_km,
         order_distance_in_km / 1.6 AS order_distance_in_miles

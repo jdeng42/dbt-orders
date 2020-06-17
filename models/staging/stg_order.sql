@@ -3,6 +3,7 @@ select
     order_unique_id,
     customer_unique_id,
     amount_gross,
+    channel,
     sale_datetime,
     zone_unique_id,
     pricing_mode_id,
@@ -13,4 +14,4 @@ from ticketing.order_tickets
 INNER JOIN ticketing.price_codes USING(price_code_unique_id)
 INNER JOIN ticketing.zones USING (zone_unique_id)
 WHERE 
-lower(zone_type_description)  in ('admissions', 'premium seating')
+lower(zone_type_description) in ('admissions', 'premium seating')

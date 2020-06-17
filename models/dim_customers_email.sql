@@ -29,7 +29,22 @@ customer_orders as (
         COUNT(DISTINCT CASE WHEN (ticket_state = 'TRANSFERRED') THEN 
         transfer_action_id || ':' || ticket_id  ELSE NULL END) AS count_transfers,
 
-        AVG(order_distance_in_km) AS average_order_distance
+        AVG(order_distance_in_km) AS average_order_distance,
+
+        COUNT(DISTINCT venue_unique_id) AS number_of_venues,
+
+
+        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(channel='Back Office', FALSE)) THEN
+            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS channel_back_office_percent,
+        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(channel='Web', FALSE)) THEN
+            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS channel_web_percent,
+
+        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(major_category_name='Sports', FALSE)) THEN
+            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS cat_sports_percent,
+        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(major_category_name='Music', FALSE)) THEN
+            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS cat_music_percent,
+        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(major_category_name='Arts & Family', FALSE)) THEN
+            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS cat_arts_family_percent
 
     from orders
     group by 1 
