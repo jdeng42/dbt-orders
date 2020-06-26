@@ -28,6 +28,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 
 models:
+    bind: false
     customer_history:
         staging:
             materialized: view

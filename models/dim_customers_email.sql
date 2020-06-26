@@ -17,7 +17,8 @@ customer_orders as (
         COUNT(DISTINCT order_ticket_unique_id) AS number_of_tickets_sold,
         COUNT(DISTINCT order_unique_id) AS number_of_orders,
         COUNT(DISTINCT event_unique_id) AS number_of_events,
-        SUM(amount_gross) AS total_revenue,
+
+        SUM(CASE WHEN order_ticket_identifier=1 THEN amount_gross ELSE 0 END) AS total_revenue,
 
         SUM(FLOOR(COALESCE(days_sold_after_onsale, 0))) / COUNT(DISTINCT CASE WHEN days_sold_after_onsale IS NOT NULL THEN 
         order_ticket_unique_id  ELSE NULL END) AS average_days_sold_after_onsale,
@@ -33,9 +34,7 @@ customer_orders as (
 
         COUNT(DISTINCT venue_unique_id) AS number_of_venues,
 
-
-        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(channel='Back Office', FALSE)) THEN
-            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS channel_back_office_percent,
+        ROUND(COUNT(DISTINCT CASE WHEN channel='Back Office' THEN event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS channel_back_office_percent,
         ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(channel='Web', FALSE)) THEN
             event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS channel_web_percent,
 

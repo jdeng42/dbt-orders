@@ -8,7 +8,7 @@ with events as (
     FROM
         ticketing.events
         INNER JOIN analytics.event_onsale USING (event_unique_id)
-        INNER JOIN analytics.mdl_major_category_event USING (event_unique_id)
+        LEFT JOIN analytics.mdl_major_category_event USING (event_unique_id)
     WHERE event_name NOT ilike 'test event%'
         AND event_name NOT ilike '%base event%'
         AND event_name NOT ilike '% test event%'

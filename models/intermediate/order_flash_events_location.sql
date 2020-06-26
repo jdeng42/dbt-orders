@@ -34,6 +34,8 @@ final as (
         customer_unique_id,
         email,
         order_ticket_unique_id,
+        ROW_NUMBER() over (PARTITION BY order_ticket_unique_id ORDER BY 
+        order_ticket_unique_id) AS order_ticket_identifier, -- for amount_gross summary
         order_unique_id,
         amount_gross,
         channel,
@@ -45,14 +47,15 @@ final as (
         ticket_state,
         days_sold_after_onsale,
         days_sold_before_event,
-        is_canceled,
         venue_unique_id,
         major_category_name,
+        is_canceled,
         round(ST_DistanceSphere(ST_Point(customer_long, customer_lat), 
         ST_Point(venue_long, venue_lat)) / 1000, 0) AS order_distance_in_km,
         order_distance_in_km / 1.6 AS order_distance_in_miles
     from customers_zip
     INNER join orders_zip using (customer_unique_id)
 )
-select * FROM final
+
+SELECT * FROM final
 WHERE is_canceled is FALSE -- shall this condition live elsewhere?
