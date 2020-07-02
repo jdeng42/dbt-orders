@@ -7,7 +7,7 @@ with orders as (
 customers as (
     SELECT
         customer_unique_id,
-        email,
+        axs_email_hash,
         zip
     FROM {{ref('stg_customers')}}
 ),
@@ -32,15 +32,16 @@ orders_zip as (
 final as (
     SELECT
         customer_unique_id,
-        email,
+        axs_email_hash,
         order_ticket_unique_id,
         ROW_NUMBER() over (PARTITION BY order_ticket_unique_id ORDER BY 
-        order_ticket_unique_id) AS order_ticket_identifier, -- for amount_gross summary
+        order_ticket_unique_id) AS order_ticket_identifier, -- to remove duplicate order_ticket_unique_id
         order_unique_id,
         amount_gross,
         channel,
         sale_datetime,
         pricing_mode_id,
+        price_code_type,
         transfer_action_id,
         event_unique_id,
         ticket_id,
@@ -58,4 +59,3 @@ final as (
 )
 
 SELECT * FROM final
-WHERE is_canceled is FALSE -- shall this condition live elsewhere?

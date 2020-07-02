@@ -21,6 +21,7 @@ final as (
     channel,
     sale_datetime,
     pricing_mode_id,
+    price_code_type,
     transfer_action_id,
     events.event_unique_id,
     ticket_id,

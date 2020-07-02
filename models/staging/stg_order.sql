@@ -7,6 +7,7 @@ select
     sale_datetime,
     zone_unique_id,
     pricing_mode_id,
+    price_code_type,
     seat_unique_id,
     ticketing.order_tickets.event_unique_id,
     is_canceled
