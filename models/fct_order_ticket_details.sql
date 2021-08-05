@@ -1,16 +1,16 @@
 {{ config(materialized='table') }}
 
 with cst as (
-    select * from {{ ref('order_flash_events_cst')}}
+    select * from {{ ref('order_ticket_details_cst')}}
 ),
 est as (
-    select * from {{ ref('order_flash_events_est')}}
+    select * from {{ ref('order_ticket_details_est')}}
 ),
 mst as (
-    select * from {{ ref('order_flash_events_mst')}}
+    select * from {{ ref('order_ticket_details_mst')}}
 ),
 pst as (
-    select * from {{ ref('order_flash_events_pst')}}
+    select * from {{ ref('order_ticket_details_pst')}}
 ),
 final as (
     SELECT * from cst

@@ -1,4 +1,4 @@
--- calculate distance between customer location vs event location -- {{ config(materialized='table') }}
+-- calculate distance between customer location vs event location
 
 with orders as (
     SELECT * FROM {{ ref('order_flash_events_pst')}}       

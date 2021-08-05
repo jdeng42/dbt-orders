@@ -1,4 +1,4 @@
--- calculate distance between customer location vs event location -- 
+-- calculate distance between customer location vs event location
 
 with orders as (
     SELECT * FROM "data_platform_prod"."data_science"."order_flash_events_cst"       

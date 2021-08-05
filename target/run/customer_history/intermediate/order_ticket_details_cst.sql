@@ -1,8 +1,6 @@
 
-
-  create  table "data_platform_prod"."data_science"."order_ticket_details_cst__dbt_tmp"
-  as (
-    -- calculate distance between customer location vs event location -- 
+  create view "data_platform_prod"."data_science"."order_ticket_details_cst__dbt_tmp" as (
+    -- calculate distance between customer location vs event location
 
 with orders as (
     SELECT * FROM "data_platform_prod"."data_science"."order_flash_events_cst"       
