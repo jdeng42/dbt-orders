@@ -18,8 +18,10 @@ with events as (
 venues as (
     SELECT
         venue_unique_id,
-        left(venue_zip, 5) as venue_zip
-        from ticketing.venues 
+        left(venue_zip, 5) as venue_zip,
+        venue_type
+        from ticketing.venues LEFT JOIN data_science.venue_type
+        USING (venue_unique_id)
 ),
 final as (
     SELECT

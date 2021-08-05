@@ -31,4 +31,6 @@ models:
     bind: false
     customer_history:
         staging:
-            materialized: view
+            +materialized: view
+        intermediate:
+            +materialized: view

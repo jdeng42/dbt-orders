@@ -1,27 +1,14 @@
 
   create view "data_platform_prod"."data_science"."stg_customers__dbt_tmp" as (
-    with customers as (
-    SELECT
-        customer_unique_id,
-        email,
-        first_name,
-        last_name
-    From ticketing.customers
-),
-
-brokers as (
-    SELECT email as broker_email
-    FROM analytics.yield_manager_partners
-),
-
-final as (
     SELECT 
-        customer_unique_id,
-        email,
-        CASE WHEN broker_email is not null THEN 1 ELSE 0 END AS is_broker,
-        first_name,
-        last_name
-    FROM customers LEFT JOIN brokers on lower(customers.email)=brokers.broker_email
-)
-select * from final
+    axs_customer_id as customer_unique_id,
+    axs_email_hash,
+    -- left(zip, 5) as zip -- eleminate situation as 01234-1234
+    zip_code as zip
+FROM analytics.demographics_all -- instead of ticketing.customers
+
+--  no need to join SQL at this moment
+--     CASE WHEN b.email is not null THEN 1 ELSE 0 END AS is_broker
+-- FROM ticketing.customers c LEFT JOIN analytics.yield_manager_partners b 
+-- on lower(c.email)=lower(b.email)
   );

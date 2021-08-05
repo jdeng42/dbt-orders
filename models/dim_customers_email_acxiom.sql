@@ -1,7 +1,7 @@
 {{ config(materialized='table') }}
 
 with orders as (
-    select * from {{ ref('order_flash_events_location')}}
+    select * from {{ ref('fct_order_ticket_details')}}
 ),
 
 customer_orders as (
@@ -31,18 +31,26 @@ customer_orders as (
 
         COUNT(DISTINCT venue_unique_id) AS number_of_venues,
 
-        ROUND(COUNT(DISTINCT CASE WHEN channel='Back Office' THEN event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS channel_back_office_percent,
-        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(channel='Web', FALSE)) THEN
-            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS channel_web_percent,
+        ROUND(COUNT(DISTINCT CASE WHEN channel='Back Office' THEN order_ticket_unique_id ELSE NULL END) *1.0 / number_of_tickets_sold, 2) AS channel_back_office_percent,
+        ROUND(COUNT(DISTINCT CASE WHEN channel='Web' THEN
+            order_ticket_unique_id ELSE NULL END) *1.0 / number_of_tickets_sold, 2) AS channel_web_percent,
 
-        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(major_category_name='Sports', FALSE)) THEN
+        ROUND(COUNT(DISTINCT CASE WHEN major_category_name='Sports' THEN
             event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS cat_sports_percent,
-        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(major_category_name='Music', FALSE)) THEN
+        ROUND(COUNT(DISTINCT CASE WHEN major_category_name='Music' THEN
             event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS cat_music_percent,
-        ROUND(COUNT(DISTINCT CASE WHEN (COALESCE(major_category_name='Arts & Family', FALSE)) THEN
+        ROUND(COUNT(DISTINCT CASE WHEN major_category_name='Arts & Family' THEN
             event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS cat_arts_family_percent,
 
-        COUNT(DISTINCT CASE WHEN price_code_type ilike '%season%' THEN order_ticket_unique_id ELSE NULL END) AS number_of_season_tickets,
+        ROUND(COUNT(DISTINCT CASE WHEN venue_type='Arena' THEN
+            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS venue_arena_percent,
+        ROUND(COUNT(DISTINCT CASE WHEN venue_type='Large Music Venue' THEN
+            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS venue_large_music_percent,
+        ROUND(COUNT(DISTINCT CASE WHEN venue_type='Club and Theater' THEN
+            event_unique_id ELSE NULL END) *1.0 / number_of_events, 2) AS venue_club_theatre_percent,
+
+        COUNT(DISTINCT CASE WHEN is_season_ticket = 1 THEN order_ticket_unique_id ELSE NULL END) AS number_of_season_tickets
+        -- COUNT(DISTINCT CASE WHEN price_code_type ilike '%season%' THEN order_ticket_unique_id ELSE NULL END) AS number_of_season_tickets
 
     from orders
     WHERE is_canceled is FALSE -- shall this condition live elsewhere?
